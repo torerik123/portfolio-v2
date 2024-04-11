@@ -1,12 +1,16 @@
 <template>
 	<v-app id="inspire">
-		<TheHeader></TheHeader>
+		<TheHeader />
 		<v-main>
 			<v-container>
 				<IntroSection></IntroSection>	
 
 				<!-- Projects  -->
-				<v-sheet color="transparent" height="100vh"> 
+				<v-sheet
+					id="#projects" 
+					color="transparent" 
+					height="100vh"
+				> 
 					<v-row
 						align="center"
 						style="height: 100%;"
