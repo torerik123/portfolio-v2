@@ -18,6 +18,7 @@
 				<v-toolbar-title>
 					<v-btn 
 						text="Tor Erik Grimen"
+						@click="scroll('top')"
 					/>
 				</v-toolbar-title>
 			</v-col>
@@ -63,8 +64,13 @@ import { useDisplay } from "vuetify";
 // - Functions
 
 const scroll = (selector) => {
-	console.log(document.querySelector("#projects"))
-	// document.querySelector(selector).scrollIntoView()
+
+	// TODO => Offset by header height ??
+	if (selector === 'top') {
+		window.scrollTo({ top: 0, behavior: "smooth"  })
+	} else {
+		document.querySelector(selector).scrollIntoView({ behavior: "smooth" })
+	}
 }
 
 const navBtns = ref([

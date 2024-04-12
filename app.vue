@@ -3,11 +3,19 @@
 		<TheHeader />
 		<v-main>
 			<v-container>
-				<IntroSection></IntroSection>	
+				<!-- Intro  -->
+				<IntroSection id="about"/>	
+
+				<!-- Work  -->
+				<v-sheet
+					id="work"
+				>
+					<h1>TODO WORK</h1>
+				</v-sheet>
 
 				<!-- Projects  -->
 				<v-sheet
-					id="#projects" 
+					id="projects" 
 					color="transparent" 
 					height="100vh"
 				> 
@@ -24,12 +32,15 @@
 								:stack="project.stack"
 								:img="project.img"
 								class="mb-10"
-							></Project>
+							/>
 						</v-col>
 					</v-row>
 				</v-sheet>
-				
 
+				<!-- Contact  -->
+				<v-sheet id="contact">
+					<h1>TODO => Contact</h1>
+				</v-sheet>
 			</v-container>
 		</v-main>
 	</v-app>
