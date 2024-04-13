@@ -1,22 +1,29 @@
 <template>
 	<v-row dense>
 		<v-col cols="12">
-			<v-card 
+			<v-card
 				style="height: 100%"
 				color="transparent"
+				class="elevation-0"
 			>
 				<v-img
-				class="rounded-lg"
-				height="400" width="100%"
-				cover
-				:src="img"
-			>
-			</v-img>
+					class="rounded-lg"
+					height="400"
+					width="100%"
+					cover
+					:src="img"
+				/>
 				<v-card-title>{{ name }}</v-card-title>
 				<v-card-subtitle>
 					<v-row dense>
-						<v-col cols="auto" v-for="item in stack" :key="item">
-							<v-chip class="mr-1">{{ item }}</v-chip>
+						<v-col
+							v-for="item in stack"
+							:key="item"
+							cols="auto"
+						>
+							<v-chip class="mr-1">
+								{{ item }}
+							</v-chip>
 						</v-col>
 					</v-row>
 				</v-card-subtitle>
@@ -36,7 +43,7 @@
 
 <script>
 export default {
-	name: "Project",
+	name: "ProjectCard",
 
 	props: {
 		name: {
@@ -45,7 +52,7 @@ export default {
 		},
 		stack: {
 			type: Array,
-			default: [],
+			default: () => [],
 		},
 		description: {
 			type: String,
@@ -56,5 +63,5 @@ export default {
 			default: "",
 		},
 	}
-}
+};
 </script>

@@ -31,8 +31,9 @@
 				>
 					<!-- TODO => Set active color  -->
 					<v-btn
-						v-for="button in navBtns" 
+						v-for="button in navBtns"
 						:key="button.text"
+						:color="isActive(button.selector) ? 'primary' : ''"
 						:text="button.text"
 						@click="scroll(button.selector)"
 					/>
@@ -48,7 +49,7 @@
 
 				<ClientOnly>
 					<v-btn
-					v-if="!$vuetify.display.mdAndUp" 
+						v-if="!$vuetify.display.mdAndUp" 
 						icon="mdi-menu" 
 					/>
 				</ClientOnly>
@@ -58,13 +59,18 @@
 </template>
 
 <script setup lang="ts">
-import { useDisplay } from "vuetify";
 // TODO => TS 
+// - Fix all TS errors
 // - Type declarationg for navBtn type?
 // - Functions
+const props = defineProps({
+	highlightSection: {
+		type: String,
+		default: "",
+	}
+})
 
 const scroll = (selector) => {
-
 	// TODO => Offset by header height ??
 	if (selector === 'top') {
 		window.scrollTo({ top: 0, behavior: "smooth"  })
@@ -73,14 +79,19 @@ const scroll = (selector) => {
 	}
 }
 
+const isActive = (btnName) => {
+	const isActive = props.highlightSection.includes(btnName.replace("#", ""))
+	return isActive
+}
+
 const navBtns = ref([
 	{
 		text: "About",
 		selector: "#about",
 	},
 	{
-		text: "Work",
-		selector: "#work",
+		text: "Experience",
+		selector: "#experience",
 	},
 	{
 		text: "Projects",

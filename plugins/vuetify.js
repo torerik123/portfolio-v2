@@ -7,8 +7,17 @@ export default defineNuxtPlugin(nuxtApp => {
     components,
     directives,
 	theme: {
-		defaultTheme: 'dark'
-	  }
+		defaultTheme: 'dark',
+		themes: {
+			dark: {
+				dark: true,
+				colors: {
+					primary: "#e255a1",
+				}
+			}
+		}
+	},
+
   })
 
   nuxtApp.vueApp.use(vuetify)
