@@ -4,15 +4,18 @@
 			<v-card
 				style="height: 100%"
 				color="transparent"
-				class="elevation-0"
+				class="elevation-0 rounded-lg"
+				link
 			>
-				<v-img
-					class="rounded-lg"
-					height="400"
-					width="100%"
-					cover
-					:src="img"
-				/>
+				<v-card-item>
+					<v-img
+						class="rounded-lg px-8"
+						height="400"
+						cover
+						:src="img"
+					/>
+				</v-card-item>
+
 				<v-card-title>{{ name }}</v-card-title>
 				<v-card-subtitle>
 					<v-row dense>
@@ -21,12 +24,16 @@
 							:key="item"
 							cols="auto"
 						>
-							<v-chip class="mr-1">
+							<v-chip 
+								variant="outlined" 
+								color="primary"
+							>
 								{{ item }}
 							</v-chip>
 						</v-col>
 					</v-row>
 				</v-card-subtitle>
+
 				<v-card-text>{{ description }}</v-card-text>
 				<v-card-actions>
 					<v-btn>

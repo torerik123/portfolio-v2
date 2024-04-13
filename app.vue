@@ -15,22 +15,27 @@
 				</v-card>
 
 				<!-- Experience  -->
-				<v-card
-					id="experience"
-					v-intersect="onIntersect"
+				<v-sheet 
 					color="transparent"
-					class="elevation-0 mb-12"
+					height="500"
 				>
-					<SectionHeader text="Experience" />
-					<ExperienceCard 	
-						v-for="card in experience"
-						:key="card.title" 
-						:title="card.title" 
-						:subtitle="card.subtitle" 
-						:description="card.description" 
-						:technology="card.technology" 
-					/>
-				</v-card>
+					<v-card
+						id="experience"
+						v-intersect="onIntersect"
+						color="transparent"
+						class="elevation-0 mb-12 elevation-0"
+					>
+						<SectionHeader text="Experience" />
+						<ExperienceCard 	
+							v-for="card in experience"
+							:key="card.title" 
+							:title="card.title" 
+							:subtitle="card.subtitle" 
+							:description="card.description" 
+							:technology="card.technology" 
+						/>
+					</v-card>
+				</v-sheet>
 
 				<!-- Projects  -->
 				<v-lazy>
@@ -65,6 +70,7 @@
 					id="contact" 
 					v-intersect="onIntersect"
 					color="transparent"
+					elevation="0"
 				>
 					<SectionHeader text="TODO => Contact" />
 				</v-card>

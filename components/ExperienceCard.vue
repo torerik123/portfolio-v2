@@ -3,7 +3,7 @@
 		:title="title"
 		:subtitle="subtitle"
 		:text="description"
-		class="rounded-lg"
+		class="rounded-lg elevation-0"
 		color="transparent"
 		link
 	>
