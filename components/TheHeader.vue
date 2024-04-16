@@ -2,7 +2,8 @@
 	<v-app-bar
 		scroll-behavior="elevate"
 		dense
-	>
+		style="background-color: rgb(var(--v-theme-background));"
+	>	
 		<v-row
 			dense 
 			no-gutters 
@@ -18,7 +19,7 @@
 				<v-toolbar-title>
 					<v-btn 
 						text="Tor Erik Grimen"
-						@click="scroll('top')"
+						@click="$emit('scroll', 'top')"
 					/>
 				</v-toolbar-title>
 			</v-col>
@@ -31,11 +32,11 @@
 				>
 					<!-- TODO => Set active color  -->
 					<v-btn
-						v-for="button in navBtns"
+						v-for="button in navItems"
 						:key="button.text"
 						:color="isActive(button.selector) ? 'primary' : ''"
 						:text="button.text"
-						@click="scroll(button.selector)"
+						@click="$emit('scroll', button.selector)"
 					/>
 				</v-col>
 			</ClientOnly>
@@ -45,12 +46,17 @@
 				cols="auto"
 				class="d-flex"
 			>
-				<v-btn icon="mdi-github" />
+				<v-btn 
+					icon="mdi-github"
+					href="https://github.com/torerik123"
+					target="_blank" 
+				/>
 
 				<ClientOnly>
 					<v-btn
 						v-if="!$vuetify.display.mdAndUp" 
-						icon="mdi-menu" 
+						icon="mdi-menu"
+						@click="$emit('toggle-menu')"	
 					/>
 				</ClientOnly>
 			</v-col>
@@ -59,6 +65,8 @@
 </template>
 
 <script setup lang="ts">
+const emits =  defineEmits(["toggle-menu", "scroll"])
+
 // TODO => TS 
 // - Fix all TS errors
 // - Type declarationg for navBtn type?
@@ -67,40 +75,15 @@ const props = defineProps({
 	highlightSection: {
 		type: String,
 		default: "",
+	},
+	navItems: {
+		type: Array,
+		default: () => ([])
 	}
 })
-
-const scroll = (selector) => {
-	// TODO => Offset by header height ??
-	if (selector === 'top') {
-		window.scrollTo({ top: 0, behavior: "smooth"  })
-	} else {
-		document.querySelector(selector).scrollIntoView({ behavior: "smooth" })
-	}
-}
 
 const isActive = (btnName) => {
 	const isActive = props.highlightSection.includes(btnName.replace("#", ""))
 	return isActive
 }
-
-const navBtns = ref([
-	{
-		text: "About",
-		selector: "#about",
-	},
-	{
-		text: "Experience",
-		selector: "#experience",
-	},
-	{
-		text: "Projects",
-		selector: "#projects",
-	},
-	{
-		text: "Contact",
-		selector: "#contact",
-	},
-])
-
 </script>
