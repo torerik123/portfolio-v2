@@ -25,7 +25,11 @@
 		/>
 			
 		<v-main>
-			<v-container>
+			<!-- :fluid="$vuetify.display.smAndDown ? true: false" -->
+			<v-container 
+				fluid
+				:class="$vuetify.display.mdAndUp ? 'px-12' : ''"
+				>
 				<div style="height: 100vh;" class="d-flex align-start">
 					<div style="margin-top: 200px;">
 						<!-- Intro  -->
@@ -126,6 +130,8 @@
 </template>
   
 <script setup>
+import vuetify from './plugins/vuetify';
+
 // Navigation 
 const navBtns = ref([
 	{ text: "About", selector: "#about", },

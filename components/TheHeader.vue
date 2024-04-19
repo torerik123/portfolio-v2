@@ -3,68 +3,73 @@
 		scroll-behavior="elevate"
 		dense
 		style="background-color: rgb(var(--v-theme-background));"
+		:class="$vuetify.display.mdAndUp ? 'px-12' : ''"
 	>	
-		<v-row
-			dense 
-			no-gutters 
-			class="px-12"
-			justify="space-between"
-			align="center"
-		>
-			<!-- Title  -->
-			<v-col 
-				class="d-flex"
-				cols="auto"
+		<ClientOnly>
+			<v-row
+				dense 
+				no-gutters 
+				justify="space-between"
+				align="center"
 			>
-				<v-toolbar-title>
-					<v-btn 
-						text="Tor Erik Grimen"
-						@click="$emit('scroll', 'top')"
-					/>
-				</v-toolbar-title>
-			</v-col>
-
-			<!-- Navigation  -->
-			<ClientOnly>
+				<!-- Title  -->
 				<v-col 
-					v-if="$vuetify.display.mdAndUp"
+					class="d-flex"
 					cols="auto"
 				>
-					<!-- TODO => Set active color  -->
-					<v-btn
-						v-for="button in navItems"
-						:key="button.text"
-						:color="isActive(button.selector) ? 'primary' : ''"
-						:text="button.text"
-						@click="$emit('scroll', button.selector)"
-					/>
+					<v-toolbar-title>
+						<v-btn 
+							text="Tor Erik Grimen"
+							@click="$emit('scroll', 'top')"
+						/>
+					</v-toolbar-title>
 				</v-col>
-			</ClientOnly>
 
-			<!-- Icons  -->
-			<v-col 
-				cols="auto"
-				class="d-flex"
-			>
-				<v-btn 
-					icon="mdi-github"
-					href="https://github.com/torerik123"
-					target="_blank" 
-				/>
-
+				<!-- Navigation  -->
 				<ClientOnly>
-					<v-btn
-						v-if="!$vuetify.display.mdAndUp" 
-						icon="mdi-menu"
-						@click="$emit('toggle-menu')"	
-					/>
+					<v-col 
+						v-if="$vuetify.display.mdAndUp"
+						cols="auto"
+					>
+						<!-- TODO => Set active color  -->
+						<v-btn
+							v-for="button in navItems"
+							:key="button.text"
+							:color="isActive(button.selector) ? 'primary' : ''"
+							:text="button.text"
+							@click="$emit('scroll', button.selector)"
+						/>
+					</v-col>
 				</ClientOnly>
-			</v-col>
-		</v-row>
+
+				<!-- Icons  -->
+				<v-col 
+					cols="auto"
+				>
+					<div>
+						<v-btn 
+							icon="mdi-github"
+							href="https://github.com/torerik123"
+							target="_blank" 
+						/>
+
+						<ClientOnly>
+							<v-btn
+								v-if="!$vuetify.display.mdAndUp"
+								icon="mdi-menu"
+								@click="$emit('toggle-menu')"	
+							/>
+						</ClientOnly>
+					</div>
+				</v-col>	
+			</v-row>
+		</ClientOnly>
 	</v-app-bar>
 </template>
 
 <script setup lang="ts">
+import type vuetify from '~/plugins/vuetify';
+
 const emits =  defineEmits(["toggle-menu", "scroll"])
 
 // TODO => TS 
