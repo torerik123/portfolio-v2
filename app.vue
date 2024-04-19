@@ -29,7 +29,7 @@
 			<v-container 
 				fluid
 				:class="$vuetify.display.mdAndUp ? 'px-12' : ''"
-				>
+			>
 				<div style="height: 100vh;" class="d-flex align-start">
 					<div style="margin-top: 200px;">
 						<!-- Intro  -->

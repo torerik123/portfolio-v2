@@ -3,12 +3,22 @@
 	<v-sheet color="transparent">
 		<v-row dense>
 			<!-- Skills  -->
-			<v-col>
+			<v-col 
+				:order="$vuetify.display.mdAndUp ? 0 : 1"
+				md="6" 
+				cols="12" 
+			>
 				<SectionHeader text="Skills"></SectionHeader>
 				<SkillsSection />
 			</v-col>
+
 			<!-- Description  -->
-			<v-col>
+			<v-col
+				:order="$vuetify.display.mdAndUp ? 1 : 0"
+				md="6" 
+				cols="12"
+				:class="$vuetify.display.mdAndUp ? '' : 'mb-12'"
+			>
 				<SectionHeader text="About"></SectionHeader>
 				<div>
 					<p class="text-body-1 mb-5">
@@ -36,3 +46,9 @@
 		</v-row>
 	</v-sheet>
 </template>
+
+<style lang="css">
+p {
+	text-wrap: pretty;
+}
+</style>
