@@ -26,47 +26,46 @@
 			
 		<v-main>
 			<v-container>
-				<!-- Intro  -->
-				<v-card
-					v-intersect="onIntersect"
-					color="transparent"
-					class="elevation-0"
-					height="600"
-				>
-					<v-row
-						align="center"
-						style="height: 100%;"
-						no-gutters
-					>
-						<v-col>
-							<IntroSection 
-								id="about"
-							/>	
-						</v-col>
-					</v-row>
-				</v-card>
-
-				
-				<!-- Skills  -->
-				<v-sheet 
-					color="transparent"
-				>
-					<v-row
-						align="center"
-						style="height: 100%;"
-						no-gutters
-					>
-						<v-col>
-							<SectionHeader text="Skills" />
-							<SkillsSection />
-						</v-col>
-					</v-row>
-				</v-sheet>
+				<div style="height: 100vh;" class="d-flex align-start">
+					<div style="margin-top: 200px;">
+						<!-- Intro  -->
+						<v-card
+							v-intersect="onIntersect"
+							color="transparent"
+							class="elevation-0"
+							style="margin-bottom: 80px;"
+						>
+							<v-row
+								no-gutters
+							>
+								<v-col>
+									<IntroSection/>	
+								</v-col>
+							</v-row>
+						</v-card>
+						
+						<!-- About  -->
+						<v-card
+							color="transparent"
+							class="elevation-0	"
+						>
+							<v-row
+								align="center"
+								style="height: 100%;"
+								no-gutters
+							>
+								<v-col>
+									<AboutSection id="about"/>	
+								</v-col>
+							</v-row>
+						</v-card>
+					</div>
+				</div>
 
 				<!-- Experience  -->
 				<v-sheet 
 					color="transparent"
-					height="500"
+					style="margin-bottom: 150px;"
 				>
 					<v-card
 						id="experience"
@@ -173,7 +172,6 @@ const scroll = (selector) => {
 	if (selector === 'top') {
 		window.scrollTo({ top: 0, behavior: "smooth"  })
 	} else {
-		console.log("selector", selector)
 		document.querySelector(selector).scrollIntoView({ behavior: "smooth" })
 	}
 }
