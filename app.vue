@@ -32,7 +32,6 @@
 					color="transparent"
 					class="elevation-0"
 					height="600"
-					style="margin-bottom: 100px;"
 				>
 					<v-row
 						align="center"
@@ -46,6 +45,23 @@
 						</v-col>
 					</v-row>
 				</v-card>
+
+				
+				<!-- Skills  -->
+				<v-sheet 
+					color="transparent"
+				>
+					<v-row
+						align="center"
+						style="height: 100%;"
+						no-gutters
+					>
+						<v-col>
+							<SectionHeader text="Skills" />
+							<SkillsSection />
+						</v-col>
+					</v-row>
+				</v-sheet>
 
 				<!-- Experience  -->
 				<v-sheet 
