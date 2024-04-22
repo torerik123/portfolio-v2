@@ -1,25 +1,49 @@
 <template>
 	<div>
 		<SectionHeader text="Contact" />
-		<v-form @submit.prevent>
+
+		<v-alert 
+			v-if="messageSent === 'delivered'"
+			type="success"
+			:text="messageDeliveredText"
+			class="mb-4"
+			closable
+			@click:close="messageSent = false"
+		/>
+		<v-alert 
+			v-if="messageSent === 'failed'"
+			type="error"
+			:text="messageDeliveredText"
+			class="mb-4"
+			closable
+			@click:close="messageSent = false"
+		/>
+
+		<v-form
+			v-model="formIsValid" 
+			@submit.prevent="submitForm"
+			validate-on="input"
+		>
 			<v-text-field
-				v-model="name"
-				:rules="rules"
+				v-model="name"	
+				:rules="rules.name"
 				label="Name"
+				autocomplete="name"
 				:variant="variant"
 				color="primary"
 			/>
 			<v-text-field
 				v-model="email"
 				label="Email"
-				:rules="rules"
+				type="email"
+				:rules="rules.email"
 				:variant="variant"
 				color="primary"
 			/>
 			<v-textarea
 				v-model="message"
 				label="Message"
-				:rules="rules"
+				:rules="rules.message"
 				:variant="variant"
 				color="primary"
 			/>
@@ -38,16 +62,53 @@
 <script setup>
 const variant = ref("solo-filled")
 
+// Form data
+const formIsValid = ref(null)
 const name = ref("")
 const email = ref("")
 const message = ref("")
+const messageSent = ref(false)
+const messageDeliveredText = ref("Message sent!")
 
-const rules = ref([
-        value => {
-          if (value) return true
+// Validation 
+const rules = ref({
+	name: [
+        value => value ? true : "Name can not be empty."
+	],
+	email: [
+		value => {
+			const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			return pattern.test(value) || 'Invalid e-mail.'
+		}
+	],
+	message: [
+		value => value.length >= 10 ? true : "Message must be more than 10 characters." 
+	],
+})
 
-          return ""
-        }
-	])
-// basic validation => fields can not be empty
+const submitForm = async () => {
+	if (formIsValid) {
+		const data = { 
+			name: name.value, 
+			email: email.value, 
+			message: message.value, 
+		}
+
+		try {
+			await $fetch("https://formspree.io/f/moqgykap", {
+				method: "POST",
+				headers: {
+					'Accept': 'application/json'
+				},
+				body: data,
+			})
+
+			messageSent.value = "delivered"
+		} catch (error) {
+			messageSent.value = "failed"
+			messageDeliveredText.value = "Something went wrong! Please try again later or email me at tor_erik_grimen@hotmail.com."
+			console.log(error)
+		}
+	}
+}
 </script>
