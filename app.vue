@@ -29,107 +29,118 @@
 		<v-main>
 			<!-- :fluid="$vuetify.display.smAndDown ? true: false" -->
 			<ClientOnly>
-				<v-container 
-					fluid
-					:class="$vuetify.display.mdAndUp ? 'px-12' : ''"
-				>
-					<div style="height: 100vh;" class="d-flex align-start">
-						<div style="margin-top: 200px;">
-							<!-- Intro  -->
+				<v-row dense justify="center">
+					<v-col 
+						cols="12"
+						md="10"
+						lg="6"
+					>
+						<v-container 
+							fluid
+						>
+							<div class="d-flex align-start">
+								<div 
+									style="margin-top: 200px; margin-bottom: 150px;"
+								>
+									<!-- Intro  -->
+									<v-card
+										v-intersect="onIntersect"
+										color="transparent"
+										class="elevation-0"
+										style="margin-bottom: 80px;"
+									>
+										<v-row
+											no-gutters
+										>
+											<v-col>
+												<IntroSection/>	
+											</v-col>
+										</v-row>
+									</v-card>
+									
+									<!-- About  -->
+									<v-card
+										color="transparent"
+										class="elevation-0	"	
+									>
+										<v-row
+											align="center"
+											style="height: 100%;"
+											no-gutters
+											class="mb-12"
+										>
+											<v-col>
+												<ClientOnly>
+													<AboutSection id="about"/>
+												</ClientOnly>	
+											</v-col>
+										</v-row>
+									</v-card>
+								</div>
+							</div>
+
+							<!-- Experience  -->
+							<v-sheet 
+								color="transparent"
+								style="margin-bottom: 150px;"
+							>
+								<v-card
+									id="experience"
+									v-intersect="onIntersect"
+									color="transparent"
+									class="elevation-0 mb-12 elevation-0"
+								>
+									<SectionHeader text="Experience" />
+									<ExperienceCard 	
+										v-for="card in experience"
+										:key="card.title" 
+										:title="card.title" 
+										:subtitle="card.subtitle" 
+										:description="card.description" 
+										:technology="card.technology" 
+									/>
+								</v-card>
+							</v-sheet>
+
+							<!-- Projects  -->
 							<v-card
+								id="projects" 
 								v-intersect="onIntersect"
 								color="transparent"
 								class="elevation-0"
-								style="margin-bottom: 80px;"
+								style="margin-bottom: 150px;"
 							>
-								<v-row
-									no-gutters
-								>
-									<v-col>
-										<IntroSection/>	
-									</v-col>
-								</v-row>
-							</v-card>
-							
-							<!-- About  -->
-							<v-card
-								color="transparent"
-								class="elevation-0	"
-							>
+								<SectionHeader text="Projects"></SectionHeader>
+
 								<v-row
 									align="center"
-									style="height: 100%;"
-									no-gutters
 								>
 									<v-col>
-										<ClientOnly>
-											<AboutSection id="about"/>
-										</ClientOnly>	
+										<ProjectCard 
+											v-for="project in projects"
+											:key="project.name"
+											:name="project.name"
+											:description="project.description"
+											:stack="project.stack"
+											:img="project.img"
+											class="mb-10"
+										/>
 									</v-col>
 								</v-row>
 							</v-card>
-						</div>
-					</div>
 
-					<!-- Experience  -->
-					<v-sheet 
-						color="transparent"
-						style="margin-bottom: 150px;"
-					>
-						<v-card
-							id="experience"
-							v-intersect="onIntersect"
-							color="transparent"
-							class="elevation-0 mb-12 elevation-0"
-						>
-							<SectionHeader text="Experience" />
-							<ExperienceCard 	
-								v-for="card in experience"
-								:key="card.title" 
-								:title="card.title" 
-								:subtitle="card.subtitle" 
-								:description="card.description" 
-								:technology="card.technology" 
-							/>
-						</v-card>
-					</v-sheet>
-
-					<!-- Projects  -->
-					<v-card
-						id="projects" 
-						v-intersect="onIntersect"
-						color="transparent"
-						class="elevation-0"
-					>
-						<SectionHeader text="Projects"></SectionHeader>
-
-						<v-row
-							align="center"
-						>
-							<v-col>
-								<ProjectCard 
-									v-for="project in projects"
-									:key="project.name"
-									:name="project.name"
-									:description="project.description"
-									:stack="project.stack"
-									:img="project.img"
-									class="mb-10"
-								/>
-							</v-col>
-						</v-row>
-					</v-card>
-
-					<!-- Contact  -->
-					<v-card 
-						id="contact" 
-						v-intersect="onIntersect"
-						color="transparent"
-						elevation="0"
-					>
-						<ContactForm />
-					</v-card>
-				</v-container>
+							<!-- Contact  -->
+							<v-card 
+								id="contact" 
+								v-intersect="onIntersect"
+								color="transparent"
+								elevation="0"
+							>
+								<ContactForm class="pb-12"/>
+							</v-card>
+						</v-container>
+					</v-col>
+				</v-row>
 			</ClientOnly>
 		</v-main>
 	</v-app>

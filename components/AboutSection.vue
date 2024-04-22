@@ -1,7 +1,9 @@
 <template>
 	<!-- About  -->
 	<v-sheet color="transparent">
-		<v-row dense>
+		<v-row 
+			dense
+		>
 			<!-- Skills  -->
 			<v-col 
 				:order="$vuetify.display.mdAndUp ? 0 : 1"
