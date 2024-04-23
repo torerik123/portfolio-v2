@@ -27,127 +27,125 @@
 		</ClientOnly>
 			
 		<v-main>
-			<!-- :fluid="$vuetify.display.smAndDown ? true: false" -->
-			<ClientOnly>
-				<v-row dense justify="center">
-					<v-col 
-						cols="12"
-						md="10"
-						lg="6"
+			<v-row dense justify="center">
+				<v-col 
+					cols="12"
+					md="10"
+					lg="8"
+				>
+					<v-container 
+						fluid
 					>
-						<v-container 
-							fluid
-						>
-							<div class="d-flex align-start">
-								<div 
-									style="margin-top: 200px; margin-bottom: 150px;"
-								>
-									<!-- Intro  -->
-									<v-card
-										v-intersect="onIntersect"
-										color="transparent"
-										class="elevation-0"
-										style="margin-bottom: 80px;"
-									>
-										<v-row
-											no-gutters
-										>
-											<v-col>
-												<IntroSection/>	
-											</v-col>
-										</v-row>
-									</v-card>
-									
-									<!-- About  -->
-									<v-card
-										color="transparent"
-										class="elevation-0	"	
-									>
-										<v-row
-											align="center"
-											style="height: 100%;"
-											no-gutters
-											class="mb-12"
-										>
-											<v-col>
-												<ClientOnly>
-													<AboutSection id="about"/>
-												</ClientOnly>	
-											</v-col>
-										</v-row>
-									</v-card>
-								</div>
-							</div>
-
-							<!-- Experience  -->
-							<v-sheet 
-								color="transparent"
-								style="margin-bottom: 150px;"
+						<div class="d-flex align-start">
+							<div 
+								style="margin-top: 200px; margin-bottom: 150px;"
 							>
+								<!-- Intro  -->
 								<v-card
-									id="experience"
 									v-intersect="onIntersect"
 									color="transparent"
-									class="elevation-0 mb-12 elevation-0"
+									class="elevation-0"
+									style="margin-bottom: 80px;"
 								>
-									<SectionHeader text="Experience" />
-									<ExperienceCard 	
-										v-for="card in experience"
-										:key="card.title" 
-										:title="card.title" 
-										:subtitle="card.subtitle" 
-										:description="card.description" 
-										:technology="card.technology" 
-									/>
+									<v-row
+										no-gutters
+									>
+										<v-col>
+											<IntroSection/>	
+										</v-col>
+									</v-row>
 								</v-card>
-							</v-sheet>
-
-							<!-- Projects  -->
-							<v-card
-								id="projects" 
-								v-intersect="onIntersect"
-								color="transparent"
-								class="elevation-0"
-								style="margin-bottom: 150px;"
-							>
-								<SectionHeader text="Projects"></SectionHeader>
-
-								<v-row
-									align="center"
+								
+								<!-- About  -->
+								<v-card
+									color="transparent"
+									class="elevation-0	"	
 								>
-									<v-col>
-										<ProjectCard 
-											v-for="project in projects"
-											:key="project.name"
-											:name="project.name"
-											:description="project.description"
-											:stack="project.stack"
-											:img="project.img"
-											class="mb-10"
-										/>
-									</v-col>
-								</v-row>
-							</v-card>
+									<v-row
+										align="center"
+										style="height: 100%;"
+										no-gutters
+										class="mb-12"
+									>
+										<v-col>
+											<ClientOnly>
+												<AboutSection id="about"/>
+											</ClientOnly>	
+										</v-col>
+									</v-row>
+								</v-card>
+							</div>
+						</div>
 
-							<!-- Contact  -->
-							<v-card 
-								id="contact" 
+						<!-- Experience  -->
+						<v-sheet 
+							color="transparent"
+							style="margin-bottom: 150px;"
+						>
+							<v-card
+								id="experience"
 								v-intersect="onIntersect"
 								color="transparent"
-								elevation="0"
+								class="elevation-0 mb-12 elevation-0"
 							>
-								<ContactForm class="pb-12"/>
+								<SectionHeader text="Experience" />
+								<ExperienceCard 	
+									v-for="card in experience"
+									:key="card.title" 
+									:title="card.title" 
+									:subtitle="card.subtitle" 
+									:description="card.description" 
+									:technology="card.technology" 
+								/>
 							</v-card>
-						</v-container>
-					</v-col>
-				</v-row>
-			</ClientOnly>
+						</v-sheet>
+
+						<!-- Projects  -->
+						<v-card
+							id="projects" 
+							v-intersect="onIntersect"
+							color="transparent"
+							class="elevation-0"
+							style="margin-bottom: 150px;"
+						>
+							<SectionHeader text="Projects"></SectionHeader>
+
+							<v-row
+								align="center"
+							>
+								<v-col>
+									<ProjectCard 
+										v-for="project in projects"
+										:key="project.name"
+										:name="project.name"
+										:description="project.description"
+										:stack="project.stack"
+										:img="project.img"
+										:github="project.github"
+										:demo="project.demo"
+										class="mb-10"
+									/>
+								</v-col>
+							</v-row>
+						</v-card>
+
+						<!-- Contact  -->
+						<v-card 
+							id="contact" 
+							v-intersect="onIntersect"
+							color="transparent"
+							elevation="0"
+						>
+							<ContactForm class="pb-12"/>
+						</v-card>
+					</v-container>
+				</v-col>
+			</v-row>
 		</v-main>
 	</v-app>
 </template>
   
 <script setup>
-import vuetify from './plugins/vuetify';
 
 // Navigation 
 const navBtns = ref([
@@ -169,16 +167,38 @@ const experience = ref([
 
 const projects = ref([
 		{
-			name: "Adventure Planner",
-			description: "Here is some info about the project, how to use it etc...",
-			stack: ['Vue', 'Nuxt', 'Firebase', 'DatoCMS'],
-			img: "https://torerik123.github.io/portfolio/static/images/AP.jpg",
+			name: "SampleWizard",
+			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow.",
+			stack: ['Vue', 'Vuetify', 'Vite', 'Stripe'],
+			img: "https://camo.githubusercontent.com/73219b01b5ebbfc6b7cd9e6e97613a0835d86f017d245b66f078855d06aebca6/68747470733a2f2f692e696d6775722e636f6d2f734d6b525539732e706e67",
+			demo: "https://chromewebstore.google.com/detail/samplewizard/keipgjjippmankncmhaenioaacgfdpfp?hl=en&authuser=0",
+			github: "https://github.com/torerik123/samplewizard",
+		},
+		
+		{
+			name: "Anelill.com",
+			description: "Portfolio for artist Ane Lill.",
+			stack: ["Vue", "Vuetify", "Nuxt", "DatoCMS"],
+			img: "/anelillcom_screenshot.jpg",
+			demo: "https://anelill.com",
+			github: "https://github.com/torerik123/anelill-v2",
+		},
+
+		{
+			name: "MPC",
+			description: "Drum machine made in React using Howler.js. Design inspired by the AKAI MPC500. Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to swich drumkits. The drumkits are made with sounds from soundpacks.com.",
+			stack: ["React"],
+			img: "/mpc.jpg",
+			demo: "https://torerik123.github.io/mpc/",
+			github: "https://github.com/torerik123/mpc",
 		},
 		{
-			name: "222222",
-			description: "asdasdasdasd about the project, how to use it etc...",
-			stack: ['Vue', 'Nuxt', 'Firebase', 'DatoCMS'],
+			name: "Adventure Planner",
+			description: "Tool for creating and sharing gear lists for all kinds of adventures. The idea was to create an app for people who are planning long distance trips where packing light and saving weight is essential.",
+			stack: ["Flask", "PostgreSQL", "Bootstrap"], 
 			img: "https://torerik123.github.io/portfolio/static/images/AP.jpg",
+			github: "https://github.com/torerik123/adventureplanner",
+			demo: "", 
 		},
 	]
 )
