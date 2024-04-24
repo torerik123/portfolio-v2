@@ -8,8 +8,9 @@
 		<ClientOnly>
 			<v-row
 				dense 
-				no-gutters 
+				no-gutters
 				justify="space-between"
+				justify-md="space-evenly" 
 				align="center"
 			>
 				<!-- Title  -->
