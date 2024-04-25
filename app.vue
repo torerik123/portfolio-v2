@@ -156,12 +156,19 @@ const navBtns = ref([
 ])
 
 // TODO => Move to CMS 
+
 const experience = ref([
 	{
 		title: "Frontend developer - Invid",
 		subtitle: "2020 - present",
-		description: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-		technology: ["Javascript", "Vue", "Nuxt", "HTML & SCSS", "Cypress"],
+		description: [
+			"Developed new features and improved existing code for a SaaS-product used by transport companies",	
+			"Worked primarily with Javascript, HTML, CSS and frameworks Vue and Nuxt",
+			"End to end testing using Cypress",
+			"Migrated entire codebase from Vue 2/Nuxt 2 to Vue 3/Nuxt 3",
+					
+		],
+		technology: ["Javascript", "Vue", "Nuxt", "HTML & CSS", "Cypress"],
 	}
 ])
 

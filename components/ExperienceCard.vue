@@ -2,11 +2,25 @@
 	<v-card
 		:title="title"
 		:subtitle="subtitle"
-		:text="description"
 		class="rounded-lg elevation-0"
 		color="transparent"
 		link
 	>
+		<v-card-text>
+			<v-list 
+				density="compact"
+				elevation="0"
+				class="bg-transparent"
+			>
+				<v-list-item
+					v-for="item in description"
+					:key="item"
+					prepend-icon="mdi-chevron-right" 
+					class="v-card-text"
+				>{{ item }}</v-list-item>
+			</v-list>
+		</v-card-text>
+
 		<v-card-actions>
 			<v-row dense>
 				<v-col
@@ -37,8 +51,8 @@ const props = defineProps({
 		default: "",
 	},
 	description: {
-		type: String,
-		default: "",
+		type: Array,
+		default: () => [],
 	},
 	technology: {
 		type: Array,
