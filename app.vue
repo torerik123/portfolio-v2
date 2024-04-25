@@ -211,11 +211,14 @@ const toggleMenu = () => {
 }
 
 const scroll = (selector) => {
-	// TODO => Offset by header height ??
 	if (selector === 'top') {
 		window.scrollTo({ top: 0, behavior: "smooth"  })
 	} else {
-		document.querySelector(selector).scrollIntoView({ behavior: "smooth" })
+		const el = document.querySelector(selector)
+		const elementPosition = el.getBoundingClientRect().top
+		const headerOffset = 100
+		const offsetPosition = elementPosition + window.scrollY - headerOffset
+		window.scrollTo({ top: offsetPosition, behavior: "smooth"  })
 	}
 }
 
