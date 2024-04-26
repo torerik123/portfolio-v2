@@ -22,3 +22,9 @@
 		</v-row>
 	</v-sheet>
 </template>
+
+<style scoped>
+h1 {
+	font-weight: 600;
+}
+</style>

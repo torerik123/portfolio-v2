@@ -1,5 +1,5 @@
 <template>
-	<v-app id="inspire">
+	<v-app id="app">
 		<ClientOnly>
 			<v-navigation-drawer 
 				v-model="menu" 
@@ -164,8 +164,8 @@ const experience = ref([
 		description: [
 			"Developed new features and improved existing code for a SaaS-product used by transport companies",	
 			"Worked primarily with Javascript, HTML, CSS and frameworks Vue and Nuxt",
-			"End to end testing using Cypress",
 			"Migrated entire codebase from Vue 2/Nuxt 2 to Vue 3/Nuxt 3",
+			"End to end testing using Cypress",
 					
 		],
 		technology: ["Javascript", "Vue", "Nuxt", "HTML & CSS", "Cypress"],
