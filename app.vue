@@ -160,7 +160,7 @@ const navBtns = ref([
 const experience = ref([
 	{
 		title: "Frontend developer - Invid",
-		subtitle: "2020 - present",
+		subtitle: "2022 - present",
 		description: [
 			"Developed new features and improved existing code for a SaaS-product used by transport companies",	
 			"Worked primarily with Javascript, HTML, CSS and frameworks Vue and Nuxt",
