@@ -13,6 +13,7 @@
 					link 
 					:title="btn.text"
 					@click="scroll(btn.selector)"
+					:id="btn.id"
 				/>
 			</v-navigation-drawer>
 		</ClientOnly>
@@ -41,10 +42,15 @@
 								style="margin-top: 200px; margin-bottom: 150px;"
 							>
 								<!-- Intro  -->
-								<v-card
-									v-intersect="onIntersect"
+								<v-sheet
+									id="about"
+									v-intersect="{
+										handler: onIntersect,
+										options: {
+											intersectOptions
+										}
+									}"
 									color="transparent"
-									class="elevation-0"
 									style="margin-bottom: 80px;"
 								>
 									<v-row
@@ -54,12 +60,11 @@
 											<IntroSection/>	
 										</v-col>
 									</v-row>
-								</v-card>
+								</v-sheet>
 								
 								<!-- About  -->
-								<v-card
+								<v-sheet
 									color="transparent"
-									class="elevation-0	"	
 								>
 									<v-row
 										align="center"
@@ -69,11 +74,11 @@
 									>
 										<v-col>
 											<ClientOnly>
-												<AboutSection id="about"/>
+												<AboutSection/>
 											</ClientOnly>	
 										</v-col>
 									</v-row>
-								</v-card>
+								</v-sheet>
 							</div>
 						</div>
 
@@ -82,11 +87,16 @@
 							color="transparent"
 							style="margin-bottom: 150px;"
 						>
-							<v-card
+							<v-sheet
 								id="experience"
-								v-intersect="onIntersect"
+								v-intersect="{
+									handler: onIntersect,
+									options: {
+										intersectOptions
+									}
+								}"
 								color="transparent"
-								class="elevation-0 mb-12 elevation-0"
+								class="mb-12"
 							>
 								<SectionHeader text="Experience" />
 								<ExperienceCard 	
@@ -97,15 +107,19 @@
 									:description="card.description" 
 									:technology="card.technology" 
 								/>
-							</v-card>
+							</v-sheet>
 						</v-sheet>
 
 						<!-- Projects  -->
-						<v-card
+						<v-sheet
 							id="projects" 
-							v-intersect="onIntersect"
+							v-intersect="{
+								handler: onIntersect,
+								options: {
+									intersectOptions
+								}
+							}"
 							color="transparent"
-							class="elevation-0"
 							style="margin-bottom: 150px;"
 						>
 							<SectionHeader text="Projects"></SectionHeader>
@@ -128,17 +142,21 @@
 									/>
 								</v-col>
 							</v-row>
-						</v-card>
+						</v-sheet>
 
 						<!-- Contact  -->
-						<v-card 
+						<v-sheet 
 							id="contact" 
-							v-intersect="onIntersect"
+							v-intersect="{
+								handler: onIntersect,
+								options: {
+									intersectOptions
+								}
+							}"
 							color="transparent"
-							elevation="0"
 						>
 							<ContactForm class="pb-12"/>
-						</v-card>
+						</v-sheet>
 					</v-container>
 				</v-col>
 			</v-row>
@@ -156,10 +174,10 @@ const head = useHead(meta)
 
 // Navigation 
 const navBtns = ref([
-	{ text: "About", selector: "#about", },
-	{ text: "Experience", selector: "#experience", },
-	{ text: "Projects", selector: "#projects", },
-	{ text: "Contact", selector: "#contact", },
+	{ text: "About", selector: "#about", id: "nav-about"},
+	{ text: "Experience", selector: "#experience", id: "nav-experience" },
+	{ text: "Projects", selector: "#projects", id: "nav-projects" },
+	{ text: "Contact", selector: "#contact", id: "nav-contact"},
 ])
 
 // TODO => Move to CMS 
@@ -237,10 +255,23 @@ const scroll = (selector) => {
 	}
 }
 
+const intersectOptions = ref({
+	quiet: true,
+	threshold: [0, 0.5, 1.0]
+})
+
 const onIntersect = (isIntersecting, entries, observer) => {
-		// if (isIntersecting) {
-		// }
-		// currentSection.value = entries[0].target.id
-		// console.log("Entries!", entries[0].target.id)
+		// TODO: Only one btn can be active
+		// Dont trigger before scroll
+
+		const sectionId = entries[0].target.id
+		const navBtn = document.querySelector("#nav-" + sectionId)
+		
+		if (isIntersecting) {
+			console.log("SECTION: ", sectionId)
+			navBtn.classList.add("text-primary")
+		} else {
+			navBtn.classList.remove("text-primary")
+		}
 }
 </script>

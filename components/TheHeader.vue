@@ -32,10 +32,10 @@
 						v-if="$vuetify.display.mdAndUp"
 						cols="auto"
 					>
-						<!-- TODO => Set active color  -->
 						<v-btn
 							v-for="button in navItems"
 							:key="button.text"
+							:id="button.id"
 							:color="isActive(button.selector) ? 'primary' : ''"
 							:text="button.text"
 							@click="$emit('scroll', button.selector)"
@@ -69,8 +69,6 @@
 </template>
 
 <script setup lang="ts">
-import type vuetify from '~/plugins/vuetify';
-
 const emits =  defineEmits(["toggle-menu", "scroll"])
 
 // TODO => TS 
@@ -88,7 +86,7 @@ const props = defineProps({
 	}
 })
 
-const isActive = (btnName) => {
+const isActive = (btnName: string) : boolean => {
 	const isActive = props.highlightSection.includes(btnName.replace("#", ""))
 	return isActive
 }
