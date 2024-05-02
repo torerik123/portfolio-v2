@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "sass": "^1.74.1",
-    "vuetify": "^3.5.15"
+    "sass": "^1.76.0",
+    "vuetify": "^3.6.3"
   }
 }

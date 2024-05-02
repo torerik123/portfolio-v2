@@ -11,6 +11,7 @@
 					<v-img
 						class="rounded-lg px-8"
 						cover
+						aspect-ratio=" 1.7778"
 						max-height="500"	
 						:src="img"
 					/>
