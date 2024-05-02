@@ -147,6 +147,12 @@
 </template>
   
 <script setup>
+const meta = {
+	title: "Tor Erik Grimen",
+	link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+}
+
+const head = useHead(meta)
 
 // Navigation 
 const navBtns = ref([
