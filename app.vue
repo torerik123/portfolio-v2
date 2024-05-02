@@ -121,6 +121,7 @@
 										:description="project.description"
 										:stack="project.stack"
 										:img="project.img"
+										:lazy="project?.lazy_src"
 										:github="project.github"
 										:demo="project.demo"
 										class="mb-10"

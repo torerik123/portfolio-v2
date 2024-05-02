@@ -14,6 +14,7 @@
 						aspect-ratio=" 1.7778"
 						max-height="500"	
 						:src="img"
+						:lazy-src="lazy"
 					/>
 				</v-card-item>
 
@@ -114,6 +115,11 @@ export default {
 			type: String,
 			default: "",
 			required: true,
+		},
+		lazy: {
+			type: String,
+			default: "",
+			required: false,
 		},
 		demo: {
 			type: String,
