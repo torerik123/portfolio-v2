@@ -10,6 +10,7 @@
   "devDependencies": {
     "@nuxt/fonts": "^0.6.1",
     "nuxt": "3.11.2",
+    "nuxt-aos": "^1.2.4",
     "vite-plugin-vuetify": "^2.0.3"
   },
   "dependencies": {

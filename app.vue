@@ -52,12 +52,14 @@
 									}"
 									color="transparent"
 									style="margin-bottom: 80px;"
+									data-aos="zoom-in-right"
 								>
 									<v-row
 										no-gutters
 									>
 										<v-col>
-											<IntroSection/>	
+											<IntroSection
+											/>	
 										</v-col>
 									</v-row>
 								</v-sheet>
@@ -65,6 +67,7 @@
 								<!-- About  -->
 								<v-sheet
 									color="transparent"
+									data-aos="fade-up"
 								>
 									<v-row
 										align="center"
@@ -74,11 +77,13 @@
 									>
 										<v-col>
 											<ClientOnly>
-												<AboutSection/>
+												<AboutSection
+												/>
 											</ClientOnly>	
 										</v-col>
 									</v-row>
 								</v-sheet>
+
 							</div>
 						</div>
 
@@ -97,9 +102,12 @@
 								}"
 								color="transparent"
 								class="mb-12"
+								data-aos="fade-right"	
 							>
-								<SectionHeader text="Experience" />
-								<ExperienceCard 	
+								<SectionHeader 
+									text="Experience"
+								/>
+								<ExperienceCard
 									v-for="card in experience"
 									:key="card.title" 
 									:title="card.title" 
@@ -122,13 +130,17 @@
 							color="transparent"
 							style="margin-bottom: 150px;"
 						>
-							<SectionHeader text="Projects"></SectionHeader>
+							<SectionHeader 
+								text="Projects"
+								data-aos="fade-right"	
+							></SectionHeader>
 
 							<v-row
 								align="center"
 							>
 								<v-col>
-									<ProjectCard 
+									<ProjectCard
+										data-aos="fade-right"	
 										v-for="project in projects"
 										:key="project.name"
 										:name="project.name"
@@ -145,7 +157,8 @@
 						</v-sheet>
 
 						<!-- Contact  -->
-						<v-sheet 
+						<v-sheet
+							data-aos="fade-right"		
 							id="contact" 
 							v-intersect="{
 								handler: onIntersect,
@@ -264,14 +277,14 @@ const onIntersect = (isIntersecting, entries, observer) => {
 		// TODO: Only one btn can be active
 		// Dont trigger before scroll
 
-		const sectionId = entries[0].target.id
-		const navBtn = document.querySelector("#nav-" + sectionId)
+		// const sectionId = entries[0].target.id
+		// const navBtn = document.querySelector("#nav-" + sectionId)
 		
-		if (isIntersecting) {
-			console.log("SECTION: ", sectionId)
-			navBtn.classList.add("text-primary")
-		} else {
-			navBtn.classList.remove("text-primary")
-		}
+		// if (isIntersecting) {
+		// 	console.log("SECTION: ", sectionId)
+		// 	navBtn.classList.add("text-primary")
+		// } else {
+		// 	navBtn.classList.remove("text-primary")
+		// }
 }
 </script>
