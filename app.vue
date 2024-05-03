@@ -11,10 +11,11 @@
 					v-for="btn in navBtns"
 					:key="btn.text"
 					link 
-					:title="btn.text"
 					@click="scroll(btn.selector)"
 					:id="btn.id"
-				/>
+				>
+					<v-list-item-title class="text-overline">{{ btn.text }}</v-list-item-title>
+				</v-list-item>
 			</v-navigation-drawer>
 		</ClientOnly>
 		
