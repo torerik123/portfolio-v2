@@ -3,14 +3,13 @@
 		scroll-behavior="elevate"
 		dense
 		style="background-color: rgb(var(--v-theme-background));"
-		:class="$vuetify.display.mdAndUp ? 'px-12' : ''"
+		:class="$vuetify.display.mdAndUp ? 'px-12' : 'px-2'"
 	>	
 		<ClientOnly>
 			<v-row
 				dense 
 				no-gutters
 				justify="space-between"
-				justify-md="space-evenly" 
 				align="center"
 			>
 				<!-- Title  -->
@@ -36,7 +35,6 @@
 							v-for="button in navItems"
 							:key="button.text"
 							:id="button.id"
-							:color="isActive(button.selector) ? 'primary' : ''"
 							:text="button.text"
 							@click="$emit('scroll', button.selector)"
 						/>
@@ -71,23 +69,10 @@
 <script setup lang="ts">
 const emits =  defineEmits(["toggle-menu", "scroll"])
 
-// TODO => TS 
-// - Fix all TS errors
-// - Type declarationg for navBtn type?
-// - Functions
 const props = defineProps({
-	highlightSection: {
-		type: String,
-		default: "",
-	},
 	navItems: {
 		type: Array,
 		default: () => ([])
 	}
 })
-
-const isActive = (btnName: string) : boolean => {
-	const isActive = props.highlightSection.includes(btnName.replace("#", ""))
-	return isActive
-}
 </script>

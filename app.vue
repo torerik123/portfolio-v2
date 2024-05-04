@@ -174,6 +174,11 @@
 					</v-container>
 				</v-col>
 			</v-row>
+
+			<v-divider></v-divider>
+			<ClientOnly>
+				<TheFooter @scroll="scroll"/>
+			</ClientOnly>
 		</v-main>
 	</v-app>
 </template>
