@@ -29,27 +29,7 @@
 					</v-col>
 				</v-row>
 			</v-col>
-			
 		</v-row>
-			<!-- <v-row 
-				dense
-				justify="space-evenly"
-				align="center"	
-		>
-			
-			<v-col cols="auto">
-				
-			</v-col> -->
-			<!-- <v-col cols="auto">
-				<v-btn 
-					icon="mdi-github"
-					href="https://github.com/torerik123"
-					target="_blank"
-					class="elevation-0" 
-				/>
-			</v-col> -->
-		<!-- </v-row> -->
-		<!-- </v-container> -->
 	</v-footer>
 </template>
 
