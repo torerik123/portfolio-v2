@@ -237,7 +237,7 @@ const projects = ref([
 
 		{
 			name: "MPC",
-			description: "Drum machine made in React using Howler.js. Design inspired by the AKAI MPC500. Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to swich drumkits. The drumkits are made with sounds from soundpacks.com.",
+			description: "Drum machine made in React using Howler.js. Design inspired by the AKAI MPC500. Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to switch drumkits. The drumkits are made with sounds from soundpacks.com.",
 			stack: ["React"],
 			img: "/mpc.jpg",
 			demo: "https://torerik123.github.io/mpc/",
