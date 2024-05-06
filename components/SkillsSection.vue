@@ -2,7 +2,7 @@
 	<v-card class="bg-transparent elevation-0 text-body-1">
 		<p>
 			<span class="text-primary" :class="fontWeight">Languages: </span> 
-			Javascript, Python, HTML, CSS, SQL
+			Javascript, TypeScript, Python, HTML, CSS, SQL
 		</p>
 		<p>
 			<span class="text-primary" :class="fontWeight">Frameworks: </span>	

@@ -220,7 +220,7 @@ const projects = ref([
 		{
 			name: "SampleWizard",
 			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow.",
-			stack: ['Vue', 'Vuetify', 'Vite', 'Stripe'],
+			stack: ['Vue', "TypeScript", 'Vuetify', 'Vite', 'Stripe'],
 			img: "https://camo.githubusercontent.com/73219b01b5ebbfc6b7cd9e6e97613a0835d86f017d245b66f078855d06aebca6/68747470733a2f2f692e696d6775722e636f6d2f734d6b525539732e706e67",
 			demo: "https://chromewebstore.google.com/detail/samplewizard/keipgjjippmankncmhaenioaacgfdpfp?hl=en&authuser=0",
 			github: "https://github.com/torerik123/samplewizard",
