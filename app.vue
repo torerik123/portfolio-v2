@@ -40,7 +40,7 @@
 					>
 						<div class="d-flex align-start">
 							<div 
-								style="margin-top: 200px; margin-bottom: 150px;"
+								style="margin-top: 150px; margin-bottom: 150px;"
 							>
 								<!-- Intro  -->
 								<v-sheet
@@ -52,7 +52,7 @@
 										}
 									}"
 									color="transparent"
-									style="margin-bottom: 80px;"
+									style="margin-bottom: 100px;"
 									data-aos="zoom-in-right"
 								>
 									<v-row

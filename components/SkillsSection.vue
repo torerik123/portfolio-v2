@@ -1,32 +1,66 @@
 <template>
-	<v-card class="bg-transparent elevation-0 text-body-1">
-		<p>
-			<span class="text-primary" :class="fontWeight">Languages: </span> 
-			Javascript, TypeScript, Python, HTML, CSS, SQL
-		</p>
-		<p>
-			<span class="text-primary" :class="fontWeight">Frameworks: </span>	
-			Vue, Nuxt, React, Django, Flask 
-		</p>
-		<p>
-			<span class="text-primary" :class="fontWeight">UI Libraries: </span>
-			Vuetify, Bootstrap
-		</p>
-		<p>
-			<span class="text-primary" :class="fontWeight">Database: </span>
-			 Supabase/PostgreSQL, Firebase, SQlite
-		</p>
-		<p>
-			<span class="text-primary" :class="fontWeight">Testing: </span>
-			Cypress, Vitest
-		</p>
-		<p>
-			<span class="text-primary" :class="fontWeight">Version Control:</span>
-			Git, Github
-		</p>
-	</v-card>
+	<v-card 
+		class="bg-transparent elevation-0"
+	>
+		<!-- <div 
+			v-for="skill in skills" 
+			:key="skill.title"
+		>
+			<v-card-title class="text-primary" :class="fontWeight">{{ skill.title }}</v-card-title>
+			<v-card-subtitle class="text-body-1">{{ skill.value }}</v-card-subtitle>
+		</div> -->
+
+		<v-list 
+			class="bg-transparent"
+		>
+			<v-list-item
+				v-for="skill in skills" 
+				:key="skill.title" 
+				class="mb-2"
+			>
+				<v-list-item-title class="text-primary text-body-1 mb-1" :class="fontWeight">{{ skill.title }}</v-list-item-title>
+				<v-list-item-subtitle class="text-body-1">{{ skill.value }}</v-list-item-subtitle>
+			</v-list-item>
+		</v-list>
+		
+	</v-card> 
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from "vue";
+import type { Ref } from "vue";
+
 const fontWeight = ref("font-weight-black")
+
+interface skillItem {
+	title: string
+	value: string
+}
+
+const skills: Ref<skillItem[]> = ref([
+	{
+		title: "Languages" ,
+		value: "Javascript, TypeScript, Python, HTML, CSS, SQL"
+	},
+	{
+		title: "Frameworks" ,
+		value: "Vue, Nuxt, React, Django, Flask",
+	},
+	{
+		title: "UI Libraries" ,
+		value: "Vuetify, Bootstrap",
+	},
+	{
+		title: "Database" ,
+		value: "Supabase, PostgreSQL, Firebase, SQlite",
+	},
+	{
+		title: "Testing" ,
+		value: "Cypress, Vitest",
+	},
+	{
+		title: "Version control" ,
+		value: "Git, Github",
+	},
+]) 
 </script>
