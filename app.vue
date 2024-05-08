@@ -212,7 +212,7 @@ const experience = ref([
 			"End to end testing using Cypress",
 					
 		],
-		technology: ["Javascript", "Vue", "Nuxt", "HTML & CSS", "Cypress"],
+		technology: ["JavaScript", "Vue", "Nuxt", "HTML & CSS", "Cypress"],
 	}
 ])
 
@@ -220,7 +220,7 @@ const projects = ref([
 		{
 			name: "SampleWizard",
 			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow.",
-			stack: ['Vue', "TypeScript", 'Vuetify', 'Vite', 'Stripe'],
+			stack: ["JavaScript", "TypeScript", "Vue", "TypeScript", "Vuetify", "Vite", "Stripe"],
 			img: "https://camo.githubusercontent.com/73219b01b5ebbfc6b7cd9e6e97613a0835d86f017d245b66f078855d06aebca6/68747470733a2f2f692e696d6775722e636f6d2f734d6b525539732e706e67",
 			demo: "https://chromewebstore.google.com/detail/samplewizard/keipgjjippmankncmhaenioaacgfdpfp?hl=en&authuser=0",
 			github: "https://github.com/torerik123/samplewizard",
@@ -229,7 +229,7 @@ const projects = ref([
 		{
 			name: "Anelill.com",
 			description: "Portfolio for artist Ane Lill.",
-			stack: ["Vue", "Vuetify", "Nuxt", "DatoCMS"],
+			stack: ["JavaScript", "Vue", "Vuetify", "Nuxt", "DatoCMS"],
 			img: "/anelillcom_screenshot.jpg",
 			demo: "https://anelill.com",
 			github: "https://github.com/torerik123/anelill-v2",
@@ -238,7 +238,7 @@ const projects = ref([
 		{
 			name: "MPC",
 			description: "Drum machine made in React using Howler.js. Design inspired by the AKAI MPC500. Use the keyboard to play sounds or click the pads. The pad bank stores different drum kits and allows the user to switch drumkits. The drumkits are made with sounds from soundpacks.com.",
-			stack: ["React"],
+			stack: ["JavaScript", "React"],
 			img: "/mpc.jpg",
 			demo: "https://torerik123.github.io/mpc/",
 			github: "https://github.com/torerik123/mpc",
@@ -246,7 +246,7 @@ const projects = ref([
 		{
 			name: "Adventure Planner",
 			description: "Tool for creating and sharing gear lists for all kinds of adventures. The idea was to create an app for people who are planning long distance trips where packing light and saving weight is essential.",
-			stack: ["Flask", "PostgreSQL", "Bootstrap"], 
+			stack: ["Python", "Flask", "PostgreSQL", "Bootstrap"], 
 			img: "https://torerik123.github.io/portfolio/static/images/AP.jpg",
 			github: "https://github.com/torerik123/adventureplanner",
 			demo: "", 
