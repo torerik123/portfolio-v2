@@ -246,7 +246,7 @@ const projects = ref([
 		{
 			name: "Adventure Planner",
 			description: "Tool for creating and sharing gear lists for all kinds of adventures. The idea was to create an app for people who are planning long distance trips where packing light and saving weight is essential.",
-			stack: ["Python", "Flask", "PostgreSQL", "Bootstrap"], 
+			stack: ["Python", "JavaScript", "Flask", "PostgreSQL", "Bootstrap"], 
 			img: "https://torerik123.github.io/portfolio/static/images/AP.jpg",
 			github: "https://github.com/torerik123/adventureplanner",
 			demo: "", 
