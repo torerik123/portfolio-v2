@@ -12,14 +12,18 @@
 
 		<v-list 
 			class="bg-transparent"
+			lines="two"
 		>
 			<v-list-item
 				v-for="skill in skills" 
 				:key="skill.title" 
-				class="mb-2"
+				class="pb-0"
 			>
-				<v-list-item-title class="text-primary text-body-1 mb-1" :class="fontWeight">{{ skill.title }}</v-list-item-title>
-				<v-list-item-subtitle class="text-body-1">{{ skill.value }}</v-list-item-subtitle>
+				<v-list-item-title class="text-primary text-body-1" :class="fontWeight">{{ skill.title }}</v-list-item-title>
+				<v-list-item-subtitle 
+					class="text-body-1"
+					style="line-height: 1.3rem;"
+				>{{ skill.value }}</v-list-item-subtitle>
 			</v-list-item>
 		</v-list>
 		
