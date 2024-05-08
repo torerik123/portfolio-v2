@@ -11,13 +11,13 @@
 		</div> -->
 
 		<v-list 
-			class="bg-transparent"
+			class="py-0 bg-transparent"
 			lines="two"
 		>
 			<v-list-item
 				v-for="skill in skills" 
 				:key="skill.title" 
-				class="pb-0"
+				class="py-0"
 			>
 				<v-list-item-title class="text-primary text-body-1" :class="fontWeight">{{ skill.title }}</v-list-item-title>
 				<v-list-item-subtitle 
