@@ -79,6 +79,7 @@
 										<v-col>
 											<ClientOnly>
 												<AboutSection
+													:text=aboutText
 												/>
 											</ClientOnly>	
 										</v-col>
@@ -225,7 +226,17 @@ const navBtns: Ref<Array<NavBtn>> = ref([
 	{ text: "Contact", selector: "#contact", id: "nav-contact"},
 ])
 
+
+
+
+
 // TODO => Move to CMS 
+type AboutSection = Array<string>
+
+const aboutText: Ref<AboutSection> = ref([
+	"I am most proficient in Vue, but also have some experience with other frameworks like React and Django.",
+	"When I'm not at work I spend my time doing olympic weightlifting, hiking, learning to make music, or dreaming about climbing big mountains.",
+])
 
 const experience: Ref<Array<ExperienceCard>> = ref([
 	{
@@ -320,3 +331,9 @@ const onIntersect = (isIntersecting: boolean, entries: IntersectionObserverEntry
 		// }
 }
 </script>
+
+<style>
+/* .gradient {
+	background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+} */
+</style>

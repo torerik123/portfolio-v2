@@ -25,14 +25,13 @@
 				<v-card
 					color="transparent" 
 					class="elevation-0"
+					v-for="paragraph in text"
+					:key="paragraph"
 				>
 					<v-card-text 
 						:class="textClass"
 					>
-						{{ aboutSection[0] }}
-					</v-card-text>
-					<v-card-text :class="textClass">
-						{{ aboutSection[1] }}
+						{{ paragraph }}
 					</v-card-text>
 				</v-card>
 			</v-col>
@@ -54,13 +53,9 @@
 import { ref } from "vue"
 import type { Ref } from "vue"
 
-type Paragraph = string
-type Section = Array<Paragraph>
-
-const aboutSection: Ref<Section> = ref([
-	"I am most proficient in Vue, but also have some experience with other frameworks like React and Django.",
-	"When I'm not at work I spend my time doing olympic weightlifting, hiking, learning to make music, or dreaming about climbing big mountains.",
-])
+const props = defineProps<{
+	text: Array<string>
+}>()
 
 const textClass: Ref<String> = ref("text-h6")
 
