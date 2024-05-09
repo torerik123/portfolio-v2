@@ -183,7 +183,33 @@
 	</v-app>
 </template>
   
-<script setup>
+<script setup lang="ts">
+import type { Ref } from "vue"
+import { ref } from "vue"
+
+interface NavBtn {
+	text: string
+	selector: string
+	id: string
+}
+
+interface ExperienceCard {
+	title: string
+	subtitle: string
+	description: string[]
+	technology: string[]
+}
+
+interface ProjectCard {
+	name: string
+	description: string
+	stack: Array<string>
+	img?: string
+	demo?: string
+	github?: string
+	lazy_src?: string 
+}
+
 const meta = {
 	title: "Tor Erik Grimen",
 	link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -192,7 +218,7 @@ const meta = {
 const head = useHead(meta)
 
 // Navigation 
-const navBtns = ref([
+const navBtns: Ref<Array<NavBtn>> = ref([
 	{ text: "About", selector: "#about", id: "nav-about"},
 	{ text: "Experience", selector: "#experience", id: "nav-experience" },
 	{ text: "Projects", selector: "#projects", id: "nav-projects" },
@@ -201,7 +227,7 @@ const navBtns = ref([
 
 // TODO => Move to CMS 
 
-const experience = ref([
+const experience: Ref<Array<ExperienceCard>> = ref([
 	{
 		title: "Frontend developer - Invid",
 		subtitle: "2022 - present",
@@ -216,7 +242,7 @@ const experience = ref([
 	}
 ])
 
-const projects = ref([
+const projects: Ref<Array<ProjectCard>> = ref([
 		{
 			name: "SampleWizard",
 			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow.",
@@ -255,21 +281,21 @@ const projects = ref([
 )
 
 const currentSection = ref("")
-const menu = ref(false)
+const menu: Ref<boolean> = ref(false)
 
-const toggleMenu = () => {
+const toggleMenu = () : void => {
 	menu.value = !menu.value
 }
 
-const scroll = (selector) => {
+const scroll = (selector: string) : void => {
 	const el = document.querySelector(selector)
 	
 	if (selector === 'top') {
 		window.scrollTo({ top: 0, behavior: "smooth"  })
 	} else {
-		const elementPosition = el.getBoundingClientRect().top
+		const elementPosition = el?.getBoundingClientRect().top
 		const headerOffset = 100
-		const offsetPosition = elementPosition + window.scrollY - headerOffset
+		const offsetPosition = elementPosition ? elementPosition + window.scrollY - headerOffset : 0
 		window.scrollTo({ top: offsetPosition, behavior: "smooth"})
 	}
 }
@@ -279,7 +305,7 @@ const intersectOptions = ref({
 	threshold: [0, 0.5, 1.0]
 })
 
-const onIntersect = (isIntersecting, entries, observer) => {
+const onIntersect = (isIntersecting: boolean, entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 		// TODO: Only one btn can be active
 		// Dont trigger before scroll
 

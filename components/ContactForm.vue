@@ -59,34 +59,38 @@
 	</div>
 </template>
 
-<script setup>
-const variant = ref("solo-filled")
+<script setup lang="ts">
+import { ref } from "vue"
+import type { Ref } from "vue"
 
+type VariantOptions = "outlined" | "solo-filled" | "plain" | "underlined" | "filled" | "solo" | "solo-inverted" | undefined
+const variant: Ref<VariantOptions> = ref("solo-filled")
+	
 // Form data
-const formIsValid = ref(null)
-const name = ref("")
-const email = ref("")
-const message = ref("")
-const messageSent = ref(false)
-const messageDeliveredText = ref("Message sent!")
+const formIsValid: Ref<null | true> = ref(null)
+const name: Ref<string> = ref("")
+const email: Ref<string> = ref("")
+const message: Ref<string> = ref("")
+const messageSent: Ref<string | false> = ref(false)
+const messageDeliveredText: Ref<string> = ref("Message sent!")
 
 // Validation 
 const rules = ref({
 	name: [
-        value => value ? true : "Name can not be empty."
+        (value: string) => value ? true : "Name can not be empty."
 	],
 	email: [
-		value => {
+		(value: string) => {
 			const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			return pattern.test(value) || 'Invalid e-mail.'
 		}
 	],
 	message: [
-		value => value.length >= 10 ? true : "Message must be more than 10 characters." 
+		(value: string) => value.length >= 10 ? true : "Message must be more than 10 characters." 
 	],
 })
 
-const submitForm = async () => {
+const submitForm = async () : Promise<void> => {
 	if (formIsValid.value) {
 		const data = { 
 			name: name.value, 
