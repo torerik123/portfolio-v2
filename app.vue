@@ -227,15 +227,13 @@ const navBtns: Ref<Array<NavBtn>> = ref([
 ])
 
 
-
-
-
 // TODO => Move to CMS 
 type AboutSection = Array<string>
 
 const aboutText: Ref<AboutSection> = ref([
-	"I am most proficient in Vue, but also have some experience with other frameworks like React and Django.",
-	"When I'm not at work I spend my time doing olympic weightlifting, hiking, learning to make music, or dreaming about climbing big mountains.",
+	"I like to build cool stuff on the web that brings value to people. My main area of expertise is Vue but I have also worked with other frameworks like React and Django.", 
+ 	"A good user experience is important to me, and knowing that my code solves real problems for people keeps me motivated. In my spare time, I like experimenting with new technologies and building small software tools.",
+	"Beyond coding, I spend a lot of time in the gym and occasionally compete in olympic weightlifting. I love spending time outdoors, whether it's hiking, camping, surfing, snowboarding, or fishing. I’m also a bedroom DJ and amateur music producer.",
 ])
 
 const experience: Ref<Array<ExperienceCard>> = ref([

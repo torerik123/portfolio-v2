@@ -57,7 +57,7 @@ const props = defineProps<{
 	text: Array<string>
 }>()
 
-const textClass: Ref<String> = ref("text-h6")
+const textClass: Ref<String> = ref("text-body-1")
 
 </script>
 
