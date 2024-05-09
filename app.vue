@@ -233,7 +233,7 @@ type AboutSection = Array<string>
 const aboutText: Ref<AboutSection> = ref([
 	"I like to build cool stuff on the web that brings value to people. My main area of expertise is Vue but I have also worked with other frameworks like React and Django.", 
  	"A good user experience is important to me, and knowing that my code solves real problems for people keeps me motivated. In my spare time, I like experimenting with new technologies and building small software tools.",
-	"Beyond coding, I spend a lot of time in the gym and occasionally compete in olympic weightlifting. I love spending time outdoors, whether it's hiking, camping, surfing, snowboarding, or fishing. I’m also a bedroom DJ and amateur music producer.",
+	"Beyond coding, I spend a lot of time in the gym and occasionally compete in olympic weightlifting. I love spending time outdoors, whether it's hiking, climbing, camping, surfing, snowboarding, or fishing. I’m also a bedroom DJ and amateur music producer.",
 ])
 
 const experience: Ref<Array<ExperienceCard>> = ref([
@@ -254,7 +254,7 @@ const experience: Ref<Array<ExperienceCard>> = ref([
 const projects: Ref<Array<ProjectCard>> = ref([
 		{
 			name: "SampleWizard",
-			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow.",
+			description: "Chrome extension to record browser audio. Designed for music producers using samples in their workflow. Free and paid plan available, where free users are limited to WEBM downloads, and premium users can download as WAV.",
 			stack: ["JavaScript", "TypeScript", "Vue", "TypeScript", "Vuetify", "Vite", "Stripe"],
 			img: "https://camo.githubusercontent.com/73219b01b5ebbfc6b7cd9e6e97613a0835d86f017d245b66f078855d06aebca6/68747470733a2f2f692e696d6775722e636f6d2f734d6b525539732e706e67",
 			demo: "https://chromewebstore.google.com/detail/samplewizard/keipgjjippmankncmhaenioaacgfdpfp?hl=en&authuser=0",
@@ -263,7 +263,7 @@ const projects: Ref<Array<ProjectCard>> = ref([
 		
 		{
 			name: "Anelill.com",
-			description: "Portfolio for artist Ane Lill.",
+			description: "Portfolio website for artist Ane Lill to showcase and sell her paintings. The client has full control to customize all content on the site through DatoCMS.",
 			stack: ["JavaScript", "Vue", "Vuetify", "Nuxt", "DatoCMS"],
 			img: "/anelillcom_screenshot.jpg",
 			demo: "https://anelill.com",
