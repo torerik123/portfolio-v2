@@ -87,7 +87,7 @@ const rules = ref({
 })
 
 const submitForm = async () => {
-	if (formIsValid) {
+	if (formIsValid.value) {
 		const data = { 
 			name: name.value, 
 			email: email.value, 
