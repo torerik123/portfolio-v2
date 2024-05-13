@@ -13,11 +13,15 @@
 		<v-list 
 			class="py-0 bg-transparent"
 			lines="two"
+			role="list"
+			aria-label="skills-section"
 		>
 			<v-list-item
 				v-for="skill in skills" 
 				:key="skill.title" 
 				class="py-0"
+				role="listitem"
+				:aria-label="skill.title"
 			>
 				<v-list-item-title class="text-primary text-body-1" :class="fontWeight">{{ skill.title }}</v-list-item-title>
 				<v-list-item-subtitle 

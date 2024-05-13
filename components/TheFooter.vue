@@ -23,6 +23,7 @@
 					<v-col cols="auto">
 						<v-btn 
 							icon="mdi-arrow-up"
+							aria-label="scroll-to-top"
 							@click="$emit('scroll', 'top')"
 							variant="text" 
 						/>

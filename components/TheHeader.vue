@@ -50,13 +50,15 @@
 							icon="mdi-github"
 							href="https://github.com/torerik123"
 							target="_blank" 
+							aria-label="github-link"	
 						/>
 
 						<ClientOnly>
 							<v-btn
 								v-if="!$vuetify.display.mdAndUp"
 								icon="mdi-menu"
-								@click="$emit('toggle-menu')"	
+								aria-label="menu"
+								@click="$emit('toggle-menu')"
 							/>
 						</ClientOnly>
 					</div>

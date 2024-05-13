@@ -23,10 +23,10 @@
 			>
 				<SectionHeader text="About"></SectionHeader>
 				<v-card
-					color="transparent" 
-					class="elevation-0"
 					v-for="paragraph in text"
 					:key="paragraph"
+					color="transparent" 
+					class="elevation-0"
 				>
 					<v-card-text 
 						:class="textClass"

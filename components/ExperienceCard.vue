@@ -11,12 +11,14 @@
 				density="compact"
 				elevation="0"
 				class="bg-transparent"
+				role="list"
 			>
 				<v-list-item
 					v-for="item in description"
 					:key="item"
 					prepend-icon="mdi-chevron-right" 
 					class="v-card-text"
+					role="listitem"
 				>{{ item }}</v-list-item>
 			</v-list>
 		</v-card-text>
