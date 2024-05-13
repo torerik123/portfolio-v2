@@ -15,6 +15,7 @@ export default defineNuxtConfig({
 
 	modules: [
 		'nuxt-aos',
+		'@nuxtjs/robots',
 		"@nuxt/fonts",
 		(_options, nuxt) => {
 			nuxt.hooks.hook("vite:extendConfig", (config) => {
