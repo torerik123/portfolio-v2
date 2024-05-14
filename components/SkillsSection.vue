@@ -38,7 +38,7 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 
-const fontWeight = ref("font-weight-black")
+const fontWeight = ref("font-weight-bold")
 
 interface skillItem {
 	title: string
