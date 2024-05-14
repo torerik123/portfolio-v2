@@ -110,7 +110,7 @@ useSeoMeta({
 	description: 'Norwegian frontend-developer',
 	ogTitle: 'Tor Erik Grimen',
 	ogDescription: 'Norwegian frontend-developer',
-	ogImage: 'https://grimen.io/grimen_io_OGIMAGE.png',
+	ogImage: 'https://grimen.io/OGIMAGE.png',
 	ogUrl: 'grimen.io',
 	twitterTitle: 'Tor Erik Grimen',
 	twitterDescription: 'Norwegian frontend-developer',
